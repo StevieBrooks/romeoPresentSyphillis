@@ -50,35 +50,48 @@ function compFunc() {
     setTimeout(determineFunc, 1000);
 }
 
-// DETERMINE WINNER & RESET
+// DETERMINE WINNER, COMMENT & RESET
 function determineFunc() {
+    const drawComment = ["It's a draw.", "Even Stevens, carry on.", "Draw? There's no paper here!"];
+    const winComment = ["Nice one, eat that bot!", "Exactly, it's just a machine.", "No mercy!"];
+    const loseComment = ["Unlucky.", "Sorry, the computer says 'no'.", "Better luck next time."];
+    const commentIndex = Math.floor(Math.random() * 3);
     if((userChoice.children[0].innerHTML === 'romeo' && compChoice.children[0].innerHTML === 'romeo') ||
         (userChoice.children[0].innerHTML === 'present' && compChoice.children[0].innerHTML === 'present') ||
         (userChoice.children[0].innerHTML === 'syphillis' && compChoice.children[0].innerHTML === 'syphillis')) {
+            scoreBox.innerHTML = drawComment[commentIndex];
             setTimeout(drawReset, 2000);
         } else if((userChoice.children[0].innerHTML === 'romeo' && compChoice.children[0].innerHTML === 'present') ||
                     (userChoice.children[0].innerHTML === 'present' && compChoice.children[0].innerHTML === 'syphillis') ||
                     (userChoice.children[0].innerHTML === 'syphillis' && compChoice.children[0].innerHTML === 'romeo')) {
                         playerScore++;
-                        scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
+                        scoreBox.innerHTML = winComment[commentIndex];
                         setTimeout(winReset, 2000);
                     } else {
                         compScore++;
-                        scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
+                        scoreBox.innerHTML = loseComment[commentIndex];
                         setTimeout(winReset, 2000);
                     }
 }
 
 function drawReset() {
+    scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.style.background = 'antiquewhite';
     userChoice.children[0].innerHTML = '';
 }
 
 function winReset() {
+    scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.style.background = 'antiquewhite';
     userChoice.children[0].innerHTML = '';
 }
 
 
 
-// once winner determined, user-choice returns to normal
+/*IDEAS:
+1. Different draw comments for Romeo, Present, etc.
+2. Variable to count number of times scoreboard.innerHTML.includes('draw'). Once === 3, comment 'these draws are taking piss', etc.
+3. Variable to count 3 wins in row and comment/userChoice.bg gifs, lovehearts, etc.
+4. Master reset button.
+5. Music, sfx (speak to Nelson).
+*/
