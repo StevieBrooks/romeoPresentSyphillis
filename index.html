@@ -61,9 +61,9 @@
             background-color: antiquewhite;
             margin: 0;
         }
-        .user-choice p, .comp-choice p {
+        /* .user-choice p, .comp-choice p {
             display: none;
-        }
+        } */
         .user-choice {
             width: 200px;
             height: 150px;
@@ -89,7 +89,7 @@
             background-size: cover;
         }
         .ch-syphillis {
-            background: url('pics/syphillis.jpg');
+            background: url('pics/syphillis.png');
             background-size: cover;
         }
         .comp-choice {
@@ -109,9 +109,9 @@
                 <p>Player</p>
                 <div class="user-choice"><p></p></div>
                 <div class="user-choices">
-                    <div class="choice ch-romeo"></div>
-                    <div class="choice ch-present"></div>
-                    <div class="choice ch-syphillis"></div>
+                    <div class="choice ch-romeo">Romeo</div>
+                    <div class="choice ch-present">Present</div>
+                    <div class="choice ch-syphillis">Syphillis</div>
                     <button class="user-select">Select</button>
                 </div>
             </div>
@@ -120,6 +120,7 @@
                 <div class="comp-choice"><p></p></div>
             </div>
         </div>
+        <button class="master-reset">Reset Game</button>
     </div>
     <script src="script.js"></script>
 </body>

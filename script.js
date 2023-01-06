@@ -27,7 +27,7 @@ function preFunc() {
 
 syphillis.addEventListener('click', sypFunc);
 function sypFunc() {
-    userChoice.style.background = 'url(pics/syphillis.jpg)';
+    userChoice.style.background = 'url(pics/syphillis.png)';
     userChoice.style.backgroundSize = 'cover';
     userChoice.children[0].innerHTML = 'syphillis';
 }
@@ -86,6 +86,15 @@ function winReset() {
     userChoice.children[0].innerHTML = '';
 }
 
+const masterReset = document.querySelector('.master-reset');
+masterReset.addEventListener('click', masReset)
+function masReset() {
+    playerScore = 0;
+    compScore = 0;
+    scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
+    userChoice.style.background = 'antiquewhite';
+    userChoice.children[0].innerHTML = '';
+}
 
 
 /*IDEAS:
