@@ -14,19 +14,19 @@ const userImage = document.getElementById('userImage');
 
 romeo.addEventListener('click', romFunc);
 function romFunc() {
-    userChoice.children[1].innerHTML = 'romeo';
+    userChoice.children[1].innerHTML = 'Romeo';
     userImage.src = 'pics/romeo.png';
 }
 
 present.addEventListener('click', preFunc);
 function preFunc() {
-    userChoice.children[1].innerHTML = 'present';
+    userChoice.children[1].innerHTML = 'Present';
     userImage.src = 'pics/present.png';
 }
 
 syphillis.addEventListener('click', sypFunc);
 function sypFunc() {
-    userChoice.children[1].innerHTML = 'syphillis';
+    userChoice.children[1].innerHTML = 'Syphillis';
     userImage.src = 'pics/syphillis.png';
 }
 
@@ -40,11 +40,12 @@ function selectFunc() {
 
 // COMP CHOICE
 const compChoice = document.querySelector('.comp-choice');
+const compImage = document.getElementById('compImage'); // NEED MAKE IMAGE APPEAR IN COMPcHOICE
 function compFunc() {
-    const compArr = ['romeo', 'present', 'syphillis'];
+    const compArr = ['Romeo', 'Present', 'Syphillis'];
     const compIndex = Math.floor(Math.random() * compArr.length);
-    compChoice.children[0].innerHTML = compArr[compIndex];
-    console.log(`Comp choice: ${compChoice.children[0].innerHTML}`);
+    compChoice.children[1].innerHTML = compArr[compIndex];
+    console.log(`Comp choice: ${compChoice.children[1].innerHTML}`);
     setTimeout(determineFunc, 1000);
 }
 
@@ -54,14 +55,14 @@ function determineFunc() {
     const winComment = ["Nice one, eat that bot!", "Exactly, it's just a machine.", "No mercy!"];
     const loseComment = ["Unlucky.", "Sorry, the computer says 'no'.", "Better luck next time."];
     const commentIndex = Math.floor(Math.random() * 3);
-    if((userChoice.children[1].innerHTML === 'romeo' && compChoice.children[0].innerHTML === 'romeo') ||
-        (userChoice.children[1].innerHTML === 'present' && compChoice.children[0].innerHTML === 'present') ||
-        (userChoice.children[1].innerHTML === 'syphillis' && compChoice.children[0].innerHTML === 'syphillis')) {
+    if((userChoice.children[1].innerHTML === 'Romeo' && compChoice.children[1].innerHTML === 'Romeo') ||
+        (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Present') ||
+        (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Syphillis')) {
             scoreBox.innerHTML = drawComment[commentIndex];
             setTimeout(drawReset, 2000);
-        } else if((userChoice.children[1].innerHTML === 'romeo' && compChoice.children[0].innerHTML === 'present') ||
-                    (userChoice.children[1].innerHTML === 'present' && compChoice.children[0].innerHTML === 'syphillis') ||
-                    (userChoice.children[1].innerHTML === 'syphillis' && compChoice.children[0].innerHTML === 'romeo')) {
+        } else if((userChoice.children[1].innerHTML === 'Romeo' && compChoice.children[1].innerHTML === 'Present') ||
+                    (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Syphillis') ||
+                    (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Romeo')) {
                         playerScore++;
                         scoreBox.innerHTML = winComment[commentIndex];
                         setTimeout(winReset, 2000);
@@ -76,6 +77,7 @@ function drawReset() {
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.style.background = 'antiquewhite';
     userChoice.children[1].innerHTML = '';
+    compChoice.children[1].innerHTML = '';
     userImage.src = '';
 }
 
@@ -83,6 +85,7 @@ function winReset() {
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.style.background = 'antiquewhite';
     userChoice.children[1].innerHTML = '';
+    compChoice.children[1].innerHTML = '';
     userImage.src = '';
 }
 
@@ -93,8 +96,9 @@ function masReset() {
     compScore = 0;
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.style.background = 'antiquewhite';
-    userImage.src = '';
     userChoice.children[1].innerHTML = '';
+    compChoice.children[1].innerHTML = '';
+    userImage.src = '';
 }
 
 

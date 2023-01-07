@@ -26,8 +26,6 @@
         .main-box {
             width: 80%;
             max-width: 800px;
-            height: 400px;
-            max-height: 400px;
             background-color: pink;
             padding: .5rem;
             display: flex;
@@ -47,7 +45,7 @@
             display: flex;
             justify-content: space-between;
             height: 75%;
-            margin-top: 1rem;
+            margin: 1rem 0;
         }
         .user-box, .comp-box {
             background-color: purple;
@@ -58,17 +56,21 @@
         }
         .user-box p, .comp-box p {
             text-align: center;
+            font-size: 1.5rem;
             background-color: antiquewhite;
             margin: 0;
+            width: 100%;
         }
-        /* .user-choice p, .comp-choice p {
-            display: none;
-        } */
-        .user-choice {
+        .user-choice p, .comp-choice p {
+            font-size: 1.2rem;
+            background-color: aqua;
+            width: 100%;
+        }
+        .user-choice, .comp-choice {
             width: 200px;
             height: 150px;
             background-color: antiquewhite;
-            margin: 0 1rem;
+            margin: 1rem 0;
             padding: .5rem 0;
             display: grid;
             place-items: center;
@@ -79,6 +81,7 @@
         .user-choices {
             display: flex;
             justify-content: space-around;
+            margin: 1rem 0;
         }
         .choice {
             width: 50px;
@@ -97,11 +100,10 @@
         .ch-romeo img, .ch-present img, .ch-syphillis img {
             width: 100%;
         }
-        .comp-choice {
-            width: 200px;
-            height: 150px;
-            background-color: antiquewhite;
-            margin: 0 1rem;
+        .user-select {
+            font-size: 1.1rem;
+            padding: .2rem 3rem;
+            margin: 1rem;
         }
     </style>
 </head>
@@ -126,6 +128,7 @@
             <div class="comp-box">
                 <p>Computer</p>
                 <div class="comp-choice">
+                    <img id="compImage" src="" alt="">
                     <p></p>
                 </div>
             </div>
