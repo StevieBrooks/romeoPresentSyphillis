@@ -69,6 +69,12 @@
             height: 150px;
             background-color: antiquewhite;
             margin: 0 1rem;
+            padding: .5rem 0;
+            display: grid;
+            place-items: center;
+        }
+        .user-choice img {
+            width: 60%;
         }
         .user-choices {
             display: flex;
@@ -79,18 +85,17 @@
             height: 50px;
             background-color: antiquewhite;
             margin: 0 1rem;
+            border: 1px solid;
+            border-radius: 50px;
+            padding: .5rem;
         }
-        .ch-romeo {
-            background: url('pics/romeo.png');
-            background-size: cover;
+        .choice:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            background-color: burlywood;
         }
-        .ch-present {
-            background: url('pics/present.png');
-            background-size: cover;
-        }
-        .ch-syphillis {
-            background: url('pics/syphillis.png');
-            background-size: cover;
+        .ch-romeo img, .ch-present img, .ch-syphillis img {
+            width: 100%;
         }
         .comp-choice {
             width: 200px;
@@ -107,17 +112,22 @@
         <div class="player-boxes">
             <div class="user-box">
                 <p>Player</p>
-                <div class="user-choice"><p></p></div>
-                <div class="user-choices">
-                    <div class="choice ch-romeo">Romeo</div>
-                    <div class="choice ch-present">Present</div>
-                    <div class="choice ch-syphillis">Syphillis</div>
-                    <button class="user-select">Select</button>
+                <div class="user-choice">
+                    <img id="userImage" src="" alt="">
+                    <p></p>
                 </div>
+                <div class="user-choices">
+                    <div class="choice ch-romeo"><img src="pics/romeo.png" alt=""></div>
+                    <div class="choice ch-present"><img src="pics/present.png" alt=""></div>
+                    <div class="choice ch-syphillis"><img src="pics/syphillis.png" alt=""></div>
+                </div>
+                <button class="user-select">Select</button>
             </div>
             <div class="comp-box">
                 <p>Computer</p>
-                <div class="comp-choice"><p></p></div>
+                <div class="comp-choice">
+                    <p></p>
+                </div>
             </div>
         </div>
         <button class="master-reset">Reset Game</button>
