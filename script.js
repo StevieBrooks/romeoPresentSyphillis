@@ -49,6 +49,16 @@ function compFunc() {
     setTimeout(determineFunc, 1000);
 }
 
+if(compChoice.children[1].innerHTML === 'Romeo') {
+    compImage.src = 'pics/romeo.png';
+} else if(compChoice.children[1].innerHTML === 'Present') {
+    compImage.src = 'pics/present.png';
+} else {
+    compImage.src = 'pics/syphillis.png';
+}
+/* NEED TO MAKE IMAGE APPEAR AT SAME TIME AS INNERHTML RESULT. INSTEAD OF IF STATEMENT, 
+SEE IF A DO/WHILE STATEMENT WORKS. */
+
 // DETERMINE WINNER, COMMENT & RESET
 function determineFunc() {
     const drawComment = ["It's a draw.", "Even Stevens, carry on.", "Draw? There's no paper here!"];
@@ -79,6 +89,7 @@ function drawReset() {
     userChoice.children[1].innerHTML = '';
     compChoice.children[1].innerHTML = '';
     userImage.src = '';
+    compImage.src = '';
 }
 
 function winReset() {
@@ -87,6 +98,7 @@ function winReset() {
     userChoice.children[1].innerHTML = '';
     compChoice.children[1].innerHTML = '';
     userImage.src = '';
+    compImage.src = '';
 }
 
 const masterReset = document.querySelector('.master-reset');
@@ -99,6 +111,7 @@ function masReset() {
     userChoice.children[1].innerHTML = '';
     compChoice.children[1].innerHTML = '';
     userImage.src = '';
+    compImage.src = '';
 }
 
 

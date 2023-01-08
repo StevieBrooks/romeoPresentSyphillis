@@ -75,7 +75,7 @@
             display: grid;
             place-items: center;
         }
-        .user-choice img {
+        .user-choice img, .comp-choice img {
             width: 60%;
         }
         .user-choices {
@@ -105,6 +105,18 @@
             padding: .2rem 3rem;
             margin: 1rem;
         }
+        .instruction-box {
+            height: 131px;
+            width: 80%;
+            background-color: black;
+            color: red;
+            margin: 1rem;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +143,8 @@
                     <img id="compImage" src="" alt="">
                     <p></p>
                 </div>
+                <div class="instruction-box">Rules:<br>- Romeo beats Present<br>
+                - Present beats Syphillis<br>- Syphillis beats Romeo</div>
             </div>
         </div>
         <button class="master-reset">Reset Game</button>
