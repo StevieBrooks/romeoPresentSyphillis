@@ -1,0 +1,218 @@
+        body {
+            background:
+            radial-gradient(black 15%, transparent 16%) 0 0,
+            radial-gradient(black 15%, transparent 16%) 8px 8px,
+            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+            background-color:#01161E;
+            background-size:16px 16px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-box {
+            width: 80%;
+            max-width: 1000px;
+            background:
+            radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+            radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+            radial-gradient(circle closest-side at 42% 22%, #d35 43%, rgba(221,51,85,0) 45%),
+            radial-gradient(circle closest-side at 58% 22%, #d35 43%, rgba(221,51,85,0) 45%),
+            radial-gradient(circle closest-side at 50% 35%, #d35 32%, rgba(221,51,85,0) 27%),
+
+            radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+            radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+            radial-gradient(circle closest-side at 40% 22%, #d35 40%, rgba(221,51,85,0) 45%) 52px 50px,
+            radial-gradient(circle closest-side at 60% 22%, #d35 40%, rgba(221,51,85,0) 45%) 48px 50px,
+            radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 37%) 50px 50px;
+            background-color:#b03;
+            background-size:100px 100px;
+            border-radius: 10px;
+            box-shadow: -1px -1px 8px #FED0BB;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .score-box {
+            width: 90%;
+            height: 80px;
+            background-color: #461220;
+            box-shadow: inset 2px 2px 4px #B23A48;
+            color: red;
+            border: 1px solid #FED0BB;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2rem;
+            display: grid;
+            place-items: center;
+        }
+        .player-boxes {
+            display: flex;
+            justify-content: space-between;
+            height: 75%;
+            width: 90%;
+            margin: 1rem 0;
+        }
+        .user-box, .comp-box {
+            height: 100%;
+            width: 48.5%;
+            display: grid;
+            place-items: center;
+            border: 1px solid #FED0BB;
+            border-radius: 5px;
+            background: linear-gradient(#8C2F39, #B23A48);
+        }
+        .user-box-name, .comp-box-name {
+            text-align: center;
+            font-size: 1.5rem;
+            background-color: #B23A48;
+            color: #FED0BB;
+            margin: 1rem 1rem 0;
+            border: 1px solid #FED0BB;
+            border-radius: 5px;
+            padding: .2rem;
+            width: 80%;
+        }
+        .user-choice p, .comp-choice p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #461220;
+            background-color: #FED0BB;
+            width: 50%;
+            border: 1px solid #461220;
+            border-radius: 5px;
+            display: none;
+            position: relative;
+        }
+        .user-choice, .comp-choice {
+            width: 250px;
+            height: 150px;
+            background: #FCB9B2;
+            border: 1px solid #FED0BB;
+            border-radius: 5px;
+            margin: 1rem 0;
+            padding: .5rem 0;
+            display: grid;
+            place-items: center;
+        }
+        .user-choice img, .comp-choice img {
+            width: 60%;
+        }
+        .user-choices {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
+        .choice {
+            width: 50px;
+            height: 50px;
+            background-color: antiquewhite;
+            margin: 0 1rem;
+            border: 1px solid #461220;
+            border-radius: 50px;
+            padding: .5rem;
+        }
+        .choice:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            background-color: #FCB9B2;
+        }
+        .ch-romeo img, .ch-present img, .ch-syphillis img {
+            width: 100%;
+        }
+        .user-select {
+            font-size: 1.1rem;
+            padding: .4rem 2.5rem;
+            margin: 1rem;
+            background-color: #FED0BB;
+            border: 1px solid #461220;
+            border-radius: 5px;
+        }
+        .user-select:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            background-color: #FCB9B2;
+        }
+        .instruction-box {
+            height: 131px;
+            width: 80%;
+            background-color: #461220;
+            box-shadow: inset 2px 2px 4px #B23A48;
+            color: #FED0BB;
+            margin: 1rem;
+            border: 1px solid #FED0BB;
+            border-radius: 5px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+        }
+        .menu-buttons {
+            display: flex;
+            width: 90%;
+        }
+        .but-logo {
+            font-family: Kanit;
+            font-weight: 100;
+        }
+        .brookscode a {
+            text-decoration: none;
+            color: #FED0BB;
+        }
+        .master-reset, .brookscode {
+            width: 200px;
+            margin: auto;
+            font-size: 1.2rem;
+            padding: .5rem;
+            background-color: #8C2F39;
+            color: #FED0BB;
+            border: 1px solid #FED0BB;
+            border-radius: 5px;
+        }
+        .master-reset:hover, .brookscode:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            background-color: #FED0BB;
+            color: #461220;
+            border: 1px solid #461220;
+        }
+        .brookscode:hover a {
+            color: #8C2F39;
+        }
+        
+        @media (max-width: 860px) {
+            .score-box {
+                font-size: 1.8rem;
+            }
+            .player-boxes {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            .menu-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .user-box, .comp-box {
+                margin: .4rem;
+                width: 100%;
+            }
+            .master-reset, .brookscode {
+                margin: .4rem;
+            }
+        }
+         
+        @media (max-width: 420px) {
+            .user-box, .comp-box {
+                padding: 0 .5rem;
+            }
+            .choice {
+                margin: 0 .5rem;
+            }
+            .instruction-box {
+                font-size: 1rem;
+            }
+        }
+

@@ -4,131 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Rock, Paper, Scissors (Well...Romeo, Present, Syphillis!)</title>
-    <style>
-        body {
-            background:
-            radial-gradient(black 15%, transparent 16%) 0 0,
-            radial-gradient(black 15%, transparent 16%) 8px 8px,
-            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-            background-color:#01161E;
-            background-size:16px 16px;
-            margin: 2rem auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1 {
-            color: antiquewhite;
-            background-color: purple;
-            width: fit-content;
-        }
-        .main-box {
-            width: 80%;
-            max-width: 800px;
-            background-color: #8C1C13;
-            border-radius: 10px;
-            box-shadow: -2px -2px 8px #A78A7F;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-        }
-        .score-box {
-            width: 100%;
-            height: 80px;
-            background-color: black;
-            color: red;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 2rem;
-            display: grid;
-            place-items: center;
-        }
-        .player-boxes {
-            display: flex;
-            justify-content: space-between;
-            height: 75%;
-            margin: 1rem 0;
-        }
-        .user-box, .comp-box {
-            background-color: purple;
-            height: 100%;
-            width: 49.5%;
-            display: grid;
-            place-items: center;
-        }
-        .user-box p, .comp-box p {
-            text-align: center;
-            font-size: 1.5rem;
-            background-color: antiquewhite;
-            margin: 0;
-            width: 100%;
-        }
-        .user-choice p, .comp-choice p {
-            font-size: 1.2rem;
-            background-color: aqua;
-            width: 100%;
-        }
-        .user-choice, .comp-choice {
-            width: 200px;
-            height: 150px;
-            background-color: antiquewhite;
-            margin: 1rem 0;
-            padding: .5rem 0;
-            display: grid;
-            place-items: center;
-        }
-        .user-choice img, .comp-choice img {
-            width: 60%;
-        }
-        .user-choices {
-            display: flex;
-            justify-content: space-around;
-            margin: 1rem 0;
-        }
-        .choice {
-            width: 50px;
-            height: 50px;
-            background-color: antiquewhite;
-            margin: 0 1rem;
-            border: 1px solid;
-            border-radius: 50px;
-            padding: .5rem;
-        }
-        .choice:hover {
-            transform: scale(1.1);
-            cursor: pointer;
-            background-color: burlywood;
-        }
-        .ch-romeo img, .ch-present img, .ch-syphillis img {
-            width: 100%;
-        }
-        .user-select {
-            font-size: 1.1rem;
-            padding: .2rem 3rem;
-            margin: 1rem;
-        }
-        .instruction-box {
-            height: 131px;
-            width: 80%;
-            background-color: black;
-            color: red;
-            margin: 1rem;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            font-size: 1.3rem;
-            line-height: 1.8rem;
-        }
-    </style>
 </head>
 <body>
-    <!-- <h1>Rock, Paper, Scissors (Well...Romeo, Present, Syphillis!)</h1> -->
     <div class="main-box">
         <div class="score-box"></div>
         <div class="player-boxes">
             <div class="user-box">
-                <p>Player</p>
+                <p class="user-box-name">Player</p>
                 <div class="user-choice">
                     <img id="userImage" src="" alt="">
                     <p></p>
@@ -141,7 +28,7 @@
                 <button class="user-select">Select</button>
             </div>
             <div class="comp-box">
-                <p>Computer</p>
+                <p class="comp-box-name">Machine</p>
                 <div class="comp-choice">
                     <img id="compImage" src="" alt="">
                     <p></p>
@@ -150,7 +37,10 @@
                 - Present beats Syphillis<br>- Syphillis beats Romeo</div>
             </div>
         </div>
-        <button class="master-reset">Reset Game</button>
+        <section class="menu-buttons">
+            <button class="master-reset">Reset Game</button>
+            <button class="brookscode"><a href="http://www.brookscode.com/" target="_blank">Go to <span class="but-logo">Brooks[ode</span></a></button>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>
