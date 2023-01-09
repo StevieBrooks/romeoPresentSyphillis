@@ -34,7 +34,7 @@ select.addEventListener('click', selectFunc);
 function selectFunc() {
     console.log(`User choice: ${userChoice.children[1].innerHTML}`);
     if(userChoice.children[1].innerHTML.length > 0) {
-        setTimeout(compFunc, 1000);
+        setTimeout(compFunc, 0500);
     }
 }
 
@@ -45,19 +45,23 @@ function compFunc() {
     const compArr = ['Romeo', 'Present', 'Syphillis'];
     const compIndex = Math.floor(Math.random() * compArr.length);
     compChoice.children[1].innerHTML = compArr[compIndex];
+    setTimeout(compImgFunc, 0001);
     console.log(`Comp choice: ${compChoice.children[1].innerHTML}`);
     setTimeout(determineFunc, 1000);
 }
 
-if(compChoice.children[1].innerHTML === 'Romeo') {
-    compImage.src = 'pics/romeo.png';
-} else if(compChoice.children[1].innerHTML === 'Present') {
-    compImage.src = 'pics/present.png';
-} else {
-    compImage.src = 'pics/syphillis.png';
+function compImgFunc() {
+    if(compChoice.children[1].innerHTML === 'Romeo') {
+        compImage.src = 'pics/romeo.png';
+    } else if(compChoice.children[1].innerHTML === 'Present') {
+        compImage.src = 'pics/present.png';
+    } else if(compChoice.children[1].innerHTML === 'Syphillis') {
+        compImage.src = 'pics/syphillis.png';
+    } else {
+        compImage.src = '';
+    }
 }
-/* NEED TO MAKE IMAGE APPEAR AT SAME TIME AS INNERHTML RESULT. INSTEAD OF IF STATEMENT, 
-SEE IF A DO/WHILE STATEMENT WORKS. */
+
 
 // DETERMINE WINNER, COMMENT & RESET
 function determineFunc() {
