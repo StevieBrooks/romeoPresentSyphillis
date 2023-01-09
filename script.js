@@ -4,6 +4,10 @@ let playerScore = 0;
 let compScore = 0;
 scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
 
+// if(scoreBox.style.width < 200) {
+//     scoreBox.innerHTML = 'oh yeah';
+// } // NEED TO FIGURE WAY OF MAKING SCOREBOX MORE RESPONSIVE
+
 // USER CHOICE
 const userChoice = document.querySelector('.user-choice');
 const romeo = document.querySelector('.ch-romeo');
@@ -14,18 +18,24 @@ const userImage = document.getElementById('userImage');
 
 romeo.addEventListener('click', romFunc);
 function romFunc() {
+    userChoice.children[1].style.display = 'block';
+    userChoice.children[1].style.bottom = '40px';
     userChoice.children[1].innerHTML = 'Romeo';
     userImage.src = 'pics/romeo.png';
 }
 
 present.addEventListener('click', preFunc);
 function preFunc() {
+    userChoice.children[1].style.display = 'block';
+    userChoice.children[1].style.bottom = '33px';
     userChoice.children[1].innerHTML = 'Present';
     userImage.src = 'pics/present.png';
 }
 
 syphillis.addEventListener('click', sypFunc);
 function sypFunc() {
+    userChoice.children[1].style.display = 'block';
+    userChoice.children[1].style.bottom = '40px';
     userChoice.children[1].innerHTML = 'Syphillis';
     userImage.src = 'pics/syphillis.png';
 }
@@ -40,11 +50,12 @@ function selectFunc() {
 
 // COMP CHOICE
 const compChoice = document.querySelector('.comp-choice');
-const compImage = document.getElementById('compImage'); // NEED MAKE IMAGE APPEAR IN COMPcHOICE
+const compImage = document.getElementById('compImage');
 function compFunc() {
     const compArr = ['Romeo', 'Present', 'Syphillis'];
     const compIndex = Math.floor(Math.random() * compArr.length);
     compChoice.children[1].innerHTML = compArr[compIndex];
+    compChoice.children[1].style.display = 'block';
     setTimeout(compImgFunc, 0001);
     console.log(`Comp choice: ${compChoice.children[1].innerHTML}`);
     setTimeout(determineFunc, 1000);
@@ -60,6 +71,9 @@ function compImgFunc() {
     } else {
         compImage.src = '';
     }
+    compChoice.children[1].innerHTML === 'Present' ? 
+    compChoice.children[1].style.bottom = '33px' :
+    compChoice.children[1].style.bottom = '40px';
 }
 
 
@@ -89,7 +103,9 @@ function determineFunc() {
 
 function drawReset() {
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
-    userChoice.style.background = 'antiquewhite';
+    userChoice.children[1].style.display = 'none';
+    compChoice.children[1].style.display = 'none';
+    userChoice.style.background = '#FCB9B2';
     userChoice.children[1].innerHTML = '';
     compChoice.children[1].innerHTML = '';
     userImage.src = '';
@@ -98,7 +114,9 @@ function drawReset() {
 
 function winReset() {
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
-    userChoice.style.background = 'antiquewhite';
+    userChoice.children[1].style.display = 'none';
+    compChoice.children[1].style.display = 'none';
+    userChoice.style.background = '#FCB9B2';
     userChoice.children[1].innerHTML = '';
     compChoice.children[1].innerHTML = '';
     userImage.src = '';
@@ -111,7 +129,9 @@ function masReset() {
     playerScore = 0;
     compScore = 0;
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
-    userChoice.style.background = 'antiquewhite';
+    userChoice.children[1].style.display = 'none';
+    compChoice.children[1].style.display = 'none';
+    userChoice.style.background = '#FCB9B2';
     userChoice.children[1].innerHTML = '';
     compChoice.children[1].innerHTML = '';
     userImage.src = '';
@@ -127,3 +147,4 @@ function masReset() {
 5. Music, sfx (speak to Nelson).
 */
 
+// TRY MAKE 'PICTURE' WORD SAME POSITION AS OTHER TWO!!!
