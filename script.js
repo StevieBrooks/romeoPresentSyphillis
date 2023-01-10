@@ -2,7 +2,43 @@
 const scoreBox = document.querySelector('.score-box');
 let playerScore = 0;
 let compScore = 0;
-scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
+scoreBox.innerHTML = ``;
+setTimeout(welcome1, 2000);
+function welcome1() {
+    scoreBox.innerHTML = 'Welcome to Romeo, Present, Syphillis...';
+    setTimeout(welcome2, 3000);
+    function welcome2() {
+        scoreBox.innerHTML = 'the very best in juvenile entertainment.';
+        setTimeout(welcome3, 3000);
+        function welcome3() {
+            scoreBox.innerHTML = 'Check out the instructions below. &#8595;'
+            setTimeout(welcome4, 3000);
+            setTimeout(welcome5, 0001);
+            function welcome4() {
+                scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
+            }
+        }
+    }
+}
+
+// INSTRUCTION BOX
+const insBox = document.querySelector('.instruction-box');
+function welcome5() {
+    const b1 = setInterval(boxFlash1, 1000);
+    function boxFlash1() {
+        insBox.style.background = '#8C2F39';
+    }
+    const b2 = setInterval(boxFlash2, 2000);
+    function boxFlash2() {
+        insBox.style.background = '#461220';
+    }
+    setTimeout(finBox, 5000);
+    function finBox() {
+        clearInterval(b1, 0001);
+        clearInterval(b2, 0001);
+        insBox.style.background = '#461220';
+    }
+}
 
 // if(scoreBox.style.width < 200) {
 //     scoreBox.innerHTML = 'oh yeah';
@@ -71,9 +107,10 @@ function compImgFunc() {
     } else {
         compImage.src = '';
     }
+    
     compChoice.children[1].innerHTML === 'Present' ? 
     compChoice.children[1].style.bottom = '33px' :
-    compChoice.children[1].style.bottom = '40px';
+    compChoice.children[1].style.bottom = '40px'; // THE 'PRESENT' TEXT WAS BEING STUPID.
 }
 
 
@@ -99,6 +136,7 @@ function determineFunc() {
                         scoreBox.innerHTML = loseComment[commentIndex];
                         setTimeout(winReset, 2000);
                     }
+        setTimeout(finalDet, 0001);
 }
 
 function drawReset() {
@@ -138,6 +176,20 @@ function masReset() {
     compImage.src = '';
 }
 
+// DETERMINE ABSOLUTE WINNER, COMMENT AND RESET
+function finalDet() {
+    if(playerScore > 4) {
+        scoreBox.innerHTML = "You've won. Hell yeah!!!";
+        playerScore = 0;
+        compScore = 0;
+    } else if(compScore > 4) {
+        scoreBox.innerHTML = "Unlucky. Those damn bots, pfft!";
+        playerScore = 0;
+        compScore = 0;
+    }
+}
+
+
 
 /*IDEAS:
 1. Different draw comments for Romeo, Present, etc.
@@ -147,4 +199,3 @@ function masReset() {
 5. Music, sfx (speak to Nelson).
 */
 
-// TRY MAKE 'PICTURE' WORD SAME POSITION AS OTHER TWO!!!
