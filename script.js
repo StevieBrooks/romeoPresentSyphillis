@@ -14,7 +14,7 @@ function welcome1() {
         scoreBox.innerHTML = 'the very best in juvenile entertainment.';
         setTimeout(welcome3, 3000);
         function welcome3() {
-            scoreBox.innerHTML = 'Check out the instructions below. &#8595;'
+            scoreBox.innerHTML = 'Check out the instructions below. &#8595;&#8595;&#8595;'
             setTimeout(welcome4, 3000);
             setTimeout(welcome5, 0001);
             function welcome4() {
@@ -27,21 +27,30 @@ function welcome1() {
 // INSTRUCTION BOX
 const insBox = document.querySelector('.instruction-box');
 function welcome5() {
-    const b1 = setInterval(boxFlash1, 1000);
-    function boxFlash1() {
-        insBox.style.background = '#8C2F39';
-    }
-    const b2 = setInterval(boxFlash2, 2000);
-    function boxFlash2() {
-        insBox.style.background = '#461220';
-    }
-    setTimeout(finBox, 5000);
-    function finBox() {
-        clearInterval(b1, 0001);
-        clearInterval(b2, 0001);
-        insBox.style.background = '#461220';
-    }
+    // const b1 = setInterval(boxFlash1, 1000);
+    // function boxFlash1() {
+    //     insBox.style.background = '#8C2F39';
+    //     insBox.innerHTML = 'Click an icon, then click Select.'
+    // }
+    // const b2 = setInterval(boxFlash2, 2000);
+    // function boxFlash2() {
+    //     insBox.style.background = '#461220';
+    // }
+    // setTimeout(finBox, 8000);
+    // function finBox() {
+    //     clearInterval(b1, 0001);
+    //     clearInterval(b2, 0001);
+    //     insBox.style.background = '#461220';
+    // }
+    const blinkSpeed = 1000;
+    const darkRed = 'rgb(70, 18, 32)';
+    const time = setInterval( () => {
+        insBox.style.backgroundColor = (insBox.style.backgroundColor === darkRed ? 'rgb(178, 58, 72)' : darkRed); 
+    }, blinkSpeed);
 }
+clearInterval(time, 7000); // THIS DON'T WORK. FIGURE OUT TOMOZ!
+
+
 
 // if(scoreBox.style.width < 200) {
 //     scoreBox.innerHTML = 'oh yeah';
@@ -120,10 +129,13 @@ function compImgFunc() {
 
 // DETERMINE WINNER, COMMENT & RESET
 function determineFunc() {
-    const drawComment = ["It's a draw.", "Even Stevens, carry on.", "Draw? There's no paper here!"];
-    const winComment = ["Nice one, eat that bot!", "Exactly, it's just a machine.", "No mercy!"];
-    const loseComment = ["Unlucky.", "Sorry, the computer says 'no'.", "Better luck next time."];
-    const commentIndex = Math.floor(Math.random() * 3);
+    const drawComment = ["It's a draw.", "Even Stevens, carry on.", "Draw? There's no paper here!", 
+                        "A draw won't do. Keep going.", "Nobody likes a draw. Play on."];
+    const winComment = ["Nice one, eat that bot!", "Exactly, it's just a machine.", "No mercy!", 
+                        "Yay. You're killing it!", "Eat that bot for breakfast!"];
+    const loseComment = ["Unlucky.", "Sorry, the computer says 'no'.", "Better luck next time.", 
+                        "Don't let the bot win!", "Hang in there!"];
+    const commentIndex = Math.floor(Math.random() * 5);
     if((userChoice.children[1].innerHTML === 'Romeo' && compChoice.children[1].innerHTML === 'Romeo') ||
     (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Present') ||
     (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Syphillis')) {
@@ -191,9 +203,9 @@ function masReset() {
 
 // DETERMINE ABSOLUTE WINNER, COMMENT AND RESET
 function finalDet() {
-    const winComment = ["PLAYER WINS!", "YOU'VE WON!!!", "CONGRATULATIONS. GO HUMANITY!!!"];
-    const loseComment = ["MACHINE WINS!", "OH NO. YOU'VE LOST!", "WWHHHYHYYYYYYY!!!"];
-    const detIndex = Math.floor(Math.random() * 3);
+    const winComment = ["PLAYER WINS!", "YOU'VE WON!!!", "CONGRATULATIONS. GO HUMANITY!!!", "YOU'VE KILLED IT!!!"];
+    const loseComment = ["MACHINE WINS!", "OH NO. YOU'VE LOST!", "WWHHHYHYYYYYYY!!!", "BETTER LUCK NEXT TIME!"];
+    const detIndex = Math.floor(Math.random() * 4);
     if(playerScore > 4) {
         scoreBox.innerHTML = winComment[detIndex];
         // scoreBox.innerHTML.includes('E') ? soundFX.play() : soundFX; // USE LATER
@@ -210,13 +222,14 @@ function finalDet() {
 
 
 /*IDEAS:
-1. add more comments.
 2. Variable to count number of times scoreboard.innerHTML.includes('draw'). Once === 3, comment 'these draws are taking piss', etc.
 3. Variable to count 3 wins in row and comment/userChoice.bg gifs, lovehearts, etc.
-4. Master reset button.
 5. Music, sfx (speak to Nelson).
 */
 
 // NEED THIS LATER FOR ADDING SFX - REMEMBER SOUNDfx IS CURRENTLY SET TO DISPLAY:NONE - do sfx last
 // soundFX.src = 'audio/rocketWhoosh.wav';
 // soundFX.play();
+
+
+
