@@ -1,3 +1,6 @@
+// SFX
+const soundFX = document.querySelector('.sfx');
+
 // SCOREBOX
 const scoreBox = document.querySelector('.score-box');
 let playerScore = 0;
@@ -114,6 +117,7 @@ function compImgFunc() {
 }
 
 
+
 // DETERMINE WINNER, COMMENT & RESET
 function determineFunc() {
     const drawComment = ["It's a draw.", "Even Stevens, carry on.", "Draw? There's no paper here!"];
@@ -121,18 +125,21 @@ function determineFunc() {
     const loseComment = ["Unlucky.", "Sorry, the computer says 'no'.", "Better luck next time."];
     const commentIndex = Math.floor(Math.random() * 3);
     if((userChoice.children[1].innerHTML === 'Romeo' && compChoice.children[1].innerHTML === 'Romeo') ||
-        (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Present') ||
-        (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Syphillis')) {
+    (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Present') ||
+    (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Syphillis')) {
+            scoreBox.style.fontFamily = 'Arial, Helvetica, sans-serif';
             scoreBox.innerHTML = drawComment[commentIndex];
             setTimeout(drawReset, 2000);
         } else if((userChoice.children[1].innerHTML === 'Romeo' && compChoice.children[1].innerHTML === 'Present') ||
                     (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Syphillis') ||
                     (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Romeo')) {
                         playerScore++;
+                        scoreBox.style.fontFamily = 'Arial, Helvetica, sans-serif';
                         scoreBox.innerHTML = winComment[commentIndex];
                         setTimeout(winReset, 2000);
                     } else {
                         compScore++;
+                        scoreBox.style.fontFamily = 'Arial, Helvetica, sans-serif';
                         scoreBox.innerHTML = loseComment[commentIndex];
                         setTimeout(winReset, 2000);
                     }
@@ -140,6 +147,7 @@ function determineFunc() {
 }
 
 function drawReset() {
+    scoreBox.style.fontFamily = "'Courier New', Courier, monospace";
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.children[1].style.display = 'none';
     compChoice.children[1].style.display = 'none';
@@ -151,6 +159,7 @@ function drawReset() {
 }
 
 function winReset() {
+    scoreBox.style.fontFamily = "'Courier New', Courier, monospace";
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.children[1].style.display = 'none';
     compChoice.children[1].style.display = 'none';
@@ -161,11 +170,15 @@ function winReset() {
     compImage.src = '';
 }
 
+
+
+// MASTER RESET
 const masterReset = document.querySelector('.master-reset');
 masterReset.addEventListener('click', masReset)
 function masReset() {
     playerScore = 0;
     compScore = 0;
+    scoreBox.style.fontFamily = "'Courier New', Courier, monospace";
     scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
     userChoice.children[1].style.display = 'none';
     compChoice.children[1].style.display = 'none';
@@ -178,12 +191,17 @@ function masReset() {
 
 // DETERMINE ABSOLUTE WINNER, COMMENT AND RESET
 function finalDet() {
+    const winComment = ["PLAYER WINS!", "YOU'VE WON!!!", "CONGRATULATIONS. GO HUMANITY!!!"];
+    const loseComment = ["MACHINE WINS!", "OH NO. YOU'VE LOST!", "WWHHHYHYYYYYYY!!!"];
+    const detIndex = Math.floor(Math.random() * 3);
     if(playerScore > 4) {
-        scoreBox.innerHTML = "You've won. Hell yeah!!!";
+        scoreBox.innerHTML = winComment[detIndex];
+        // scoreBox.innerHTML.includes('E') ? soundFX.play() : soundFX; // USE LATER
         playerScore = 0;
         compScore = 0;
     } else if(compScore > 4) {
-        scoreBox.innerHTML = "Unlucky. Those damn bots, pfft!";
+        scoreBox.innerHTML = loseComment[detIndex];
+        // scoreBox.innerHTML.includes('E') ? soundFX.play() : soundFX; // USE LATER
         playerScore = 0;
         compScore = 0;
     }
@@ -192,10 +210,13 @@ function finalDet() {
 
 
 /*IDEAS:
-1. Different draw comments for Romeo, Present, etc.
+1. add more comments.
 2. Variable to count number of times scoreboard.innerHTML.includes('draw'). Once === 3, comment 'these draws are taking piss', etc.
 3. Variable to count 3 wins in row and comment/userChoice.bg gifs, lovehearts, etc.
 4. Master reset button.
 5. Music, sfx (speak to Nelson).
 */
 
+// NEED THIS LATER FOR ADDING SFX - REMEMBER SOUNDfx IS CURRENTLY SET TO DISPLAY:NONE - do sfx last
+// soundFX.src = 'audio/rocketWhoosh.wav';
+// soundFX.play();
