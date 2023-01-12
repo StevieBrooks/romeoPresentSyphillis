@@ -23,7 +23,6 @@
             radial-gradient(circle closest-side at 42% 22%, #d35 43%, rgba(221,51,85,0) 45%),
             radial-gradient(circle closest-side at 58% 22%, #d35 43%, rgba(221,51,85,0) 45%),
             radial-gradient(circle closest-side at 50% 35%, #d35 32%, rgba(221,51,85,0) 27%),
-
             radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
             radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
             radial-gradient(circle closest-side at 40% 22%, #d35 40%, rgba(221,51,85,0) 45%) 52px 50px,
@@ -31,6 +30,7 @@
             radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 37%) 50px 50px;
             background-color:#b03;
             background-size:100px 100px;
+            border: 1px solid #FED0BB;
             border-radius: 10px;
             box-shadow: -1px -1px 8px #FED0BB;
             padding: 1rem;
@@ -39,7 +39,7 @@
             align-items: center;
         }
         .score-box {
-            width: 90%;
+            width: 86.8%;
             height: 80px;
             background-color: #461220;
             box-shadow: inset 2px 2px 4px #B23A48;
@@ -50,6 +50,7 @@
             font-size: 2rem;
             display: grid;
             place-items: center;
+            padding: .5rem 1rem;
         }
         .player-boxes {
             display: flex;
@@ -70,7 +71,7 @@
         .user-box-name, .comp-box-name {
             text-align: center;
             font-size: 1.5rem;
-            background-color: #B23A48;
+            background-color: #b23a48;
             color: #FED0BB;
             margin: 1rem 1rem 0;
             border: 1px solid #FED0BB;
@@ -82,7 +83,7 @@
             text-align: center;
             font-size: 1.2rem;
             color: #461220;
-            background-color: #FED0BB;
+            background-color: #fed0bb;
             width: 50%;
             border: 1px solid #461220;
             border-radius: 5px;
@@ -154,6 +155,7 @@
             text-align: center;
             font-size: 1.3rem;
             line-height: 1.8rem;
+            padding: 0 1rem;
         }
         .menu-buttons {
             display: flex;
