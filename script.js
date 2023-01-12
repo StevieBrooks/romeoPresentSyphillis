@@ -1,8 +1,22 @@
-// SFX
+// MISC
+const blinkSpeed1 = 0250;
+const blinkSpeed2 = 1000;
+const darkRed = 'rgb(70, 18, 32)';
 const soundFX = document.querySelector('.sfx');
 
 // SCOREBOX
 const scoreBox = document.querySelector('.score-box');
+const scoreBoxFlash = {
+    time: null,
+    start: function() {
+        this.time = setInterval( () => {
+            scoreBox.style.backgroundColor = (scoreBox.style.backgroundColor === darkRed ? 'rgb(254, 208, 187)' : darkRed); 
+        }, blinkSpeed1);
+    },
+    stop: function() {
+        clearInterval(this.time, 2000); 
+    }
+}
 let playerScore = 0;
 let compScore = 0;
 scoreBox.innerHTML = ``;
@@ -16,7 +30,7 @@ function welcome1() {
         function welcome3() {
             scoreBox.innerHTML = 'Check out the instructions below. &#8595;&#8595;&#8595;'
             setTimeout(welcome4, 3000);
-            setTimeout(welcome5, 0001);
+            setTimeout(welcome5, 1000);
             function welcome4() {
                 scoreBox.innerHTML = `Player: ${playerScore} | Machine: ${compScore}`;
             }
@@ -26,29 +40,36 @@ function welcome1() {
 
 // INSTRUCTION BOX
 const insBox = document.querySelector('.instruction-box');
-function welcome5() {
-    // const b1 = setInterval(boxFlash1, 1000);
-    // function boxFlash1() {
-    //     insBox.style.background = '#8C2F39';
-    //     insBox.innerHTML = 'Click an icon, then click Select.'
-    // }
-    // const b2 = setInterval(boxFlash2, 2000);
-    // function boxFlash2() {
-    //     insBox.style.background = '#461220';
-    // }
-    // setTimeout(finBox, 8000);
-    // function finBox() {
-    //     clearInterval(b1, 0001);
-    //     clearInterval(b2, 0001);
-    //     insBox.style.background = '#461220';
-    // }
-    const blinkSpeed = 1000;
-    const darkRed = 'rgb(70, 18, 32)';
-    const time = setInterval( () => {
-        insBox.style.backgroundColor = (insBox.style.backgroundColor === darkRed ? 'rgb(178, 58, 72)' : darkRed); 
-    }, blinkSpeed);
+const insBoxFlash = {
+    time: null,
+    start: function() {
+        this.time = setInterval( () => {
+            insBox.style.backgroundColor = (insBox.style.backgroundColor === darkRed ? 'rgb(178, 58, 72)' : darkRed); 
+        }, blinkSpeed2);
+    },
+    stop: function() {
+        clearInterval(this.time, 7000); 
+    }
 }
-clearInterval(time, 7000); // THIS DON'T WORK. FIGURE OUT TOMOZ!
+
+function welcome5() {
+    insBoxFlash.start();
+    insBox.innerHTML = 'First to 5 points wins...';
+    setTimeout(stopFlash, 7000);
+    setTimeout(instruction2, 3000);
+    setTimeout(instruction3, 7000);
+    function stopFlash() {
+        insBoxFlash.stop();
+        insBox.style.backgroundcolor = darkRed;
+    };
+    function instruction2() {
+        insBox.innerHTML = 'Click the Romeo, Present, or Syphillis icon in the Player box and hit Select';
+    };
+    function instruction3() {
+        insBox.innerHTML = '- Romeo beats Present.<br>- Present beat Syphillis.<br>- Syphillis beats Romeo.';
+    }
+}
+
 
 
 
@@ -148,6 +169,12 @@ function determineFunc() {
                         playerScore++;
                         scoreBox.style.fontFamily = 'Arial, Helvetica, sans-serif';
                         scoreBox.innerHTML = winComment[commentIndex];
+                        scoreBoxFlash.start();
+                        setTimeout(stopScoreFlash, 2000);
+                        function stopScoreFlash() {
+                            scoreBoxFlash.stop();
+                            scoreBox.style.background = darkRed;
+                        }
                         setTimeout(winReset, 2000);
                     } else {
                         compScore++;
@@ -181,6 +208,7 @@ function winReset() {
     userImage.src = '';
     compImage.src = '';
 }
+
 
 
 
@@ -222,8 +250,7 @@ function finalDet() {
 
 
 /*IDEAS:
-2. Variable to count number of times scoreboard.innerHTML.includes('draw'). Once === 3, comment 'these draws are taking piss', etc.
-3. Variable to count 3 wins in row and comment/userChoice.bg gifs, lovehearts, etc.
+
 5. Music, sfx (speak to Nelson).
 */
 
