@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: center;
         }
-        .sfx {
+        .music, .sfx {
             display: none;
         }
         .main-box {
@@ -51,6 +51,7 @@
             display: grid;
             place-items: center;
             padding: .5rem 1rem;
+            text-align: center;
         }
         .player-boxes {
             display: flex;
@@ -169,7 +170,7 @@
             text-decoration: none;
             color: #FED0BB;
         }
-        .master-reset, .brookscode {
+        .master-reset, .brookscode, .toggle-sound {
             width: 200px;
             margin: auto;
             font-size: 1.2rem;
@@ -179,7 +180,7 @@
             border: 1px solid #FED0BB;
             border-radius: 5px;
         }
-        .master-reset:hover, .brookscode:hover {
+        .master-reset:hover, .brookscode:hover, .toggle-sound:hover {
             cursor: pointer;
             transform: scale(1.05);
             background-color: #FED0BB;
@@ -193,7 +194,6 @@
         @media (max-width: 860px) {
             .score-box {
                 font-size: 1.8rem;
-                text-align: center;
             }
             .player-boxes {
                 flex-direction: column-reverse;

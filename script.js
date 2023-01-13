@@ -1,7 +1,50 @@
 // MISC
 const blinkSpeed1 = 0250;
 const darkRed = 'rgb(70, 18, 32)';
+const music = document.querySelector('.music');
 const soundFX = document.querySelector('.sfx');
+
+const brooksCode = document.querySelector('.brookscode');
+brooksCode.addEventListener('click', brooksFunc);
+function brooksFunc() {
+    soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/click.mp3';
+    soundFX.play();
+}
+
+setTimeout( () => {
+    music.src = 'audio/song.mp3';
+    music.play();
+}, 2000);
+
+const toggleSound = document.querySelector('.toggle-sound');
+let soundStatus = true;
+const soundControl = {
+    on: function() {
+        music.src = 'audio/song.mp3';
+        music.play();
+    },
+    off: function () {
+        music.src = '';
+        music.play();
+        soundFX.src = '';
+        soundFX.play();
+    }
+}
+toggleSound.addEventListener('click', soundOff);
+function soundOff() {
+    soundStatus = false;
+    soundFX.src = 'audio/click.mp3';
+    soundFX.play();
+    soundControl.on() ? soundControl.off() : soundControl.on();
+}
+toggleSound.addEventListener('click', soundOn);
+function soundOn() {
+    soundFX.src = 'audio/click.mp3';
+    soundFX.play();
+    soundControl.off() ? soundControl.on() : soundControl.off();
+}
+// NEED TO TURN SOUND BACK ON BY CLICKING SAME BUTTON - SOUNDon AND ITS TERNARY NOT WORKING!
+
 
 // SCOREBOX
 const scoreBox = document.querySelector('.score-box');
@@ -79,6 +122,8 @@ const userImage = document.getElementById('userImage');
 
 romeo.addEventListener('click', romFunc);
 function romFunc() {
+    soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/click.mp3';
+    soundFX.play();
     userChoice.children[1].style.display = 'block';
     userChoice.children[1].style.bottom = '40px';
     userChoice.children[1].innerHTML = 'Romeo';
@@ -87,6 +132,8 @@ function romFunc() {
 
 present.addEventListener('click', preFunc);
 function preFunc() {
+    soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/click.mp3';
+    soundFX.play();
     userChoice.children[1].style.display = 'block';
     userChoice.children[1].style.bottom = '33px';
     userChoice.children[1].innerHTML = 'Present';
@@ -95,6 +142,8 @@ function preFunc() {
 
 syphillis.addEventListener('click', sypFunc);
 function sypFunc() {
+    soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/click.mp3';
+    soundFX.play();
     userChoice.children[1].style.display = 'block';
     userChoice.children[1].style.bottom = '40px';
     userChoice.children[1].innerHTML = 'Syphillis';
@@ -103,6 +152,8 @@ function sypFunc() {
 
 select.addEventListener('click', selectFunc);
 function selectFunc() {
+    soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/click.mp3';
+    soundFX.play();
     console.log(`User choice: ${userChoice.children[1].innerHTML}`);
     if(userChoice.children[1].innerHTML.length > 0) {
         setTimeout(compFunc, 0500);
@@ -156,6 +207,8 @@ function determineFunc() {
         } else if((userChoice.children[1].innerHTML === 'Romeo' && compChoice.children[1].innerHTML === 'Present') ||
                     (userChoice.children[1].innerHTML === 'Present' && compChoice.children[1].innerHTML === 'Syphillis') ||
                     (userChoice.children[1].innerHTML === 'Syphillis' && compChoice.children[1].innerHTML === 'Romeo')) {
+                        soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/yay.mp3';
+                        soundFX.play();
                         playerScore++;
                         scoreBox.style.fontFamily = 'Arial, Helvetica, sans-serif';
                         scoreBox.innerHTML = winComment[commentIndex];
@@ -167,6 +220,8 @@ function determineFunc() {
                         }
                         setTimeout(winReset, 2000);
                     } else {
+                        soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/boo.mp3';
+                        soundFX.play();
                         compScore++;
                         scoreBox.style.fontFamily = 'Arial, Helvetica, sans-serif';
                         scoreBox.innerHTML = loseComment[commentIndex];
@@ -203,6 +258,8 @@ function winReset() {
 const masterReset = document.querySelector('.master-reset');
 masterReset.addEventListener('click', masReset)
 function masReset() {
+    soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/click.mp3';
+    soundFX.play();
     playerScore = 0;
     compScore = 0;
     scoreBox.style.fontFamily = "'Courier New', Courier, monospace";
@@ -222,6 +279,8 @@ function finalDet() {
     const loseComment = ["MACHINE WINS!", "OH NO. YOU'VE LOST!", "WWHHHYHYYYYYYY!!!", "BETTER LUCK NEXT TIME!"];
     const detIndex = Math.floor(Math.random() * 4);
     if(playerScore > 4) {
+        soundStatus == false ? soundFX.src = '' : soundFX.src = 'audio/cheers.mp3';
+        soundFX.play();
         scoreBox.innerHTML = winComment[detIndex];
         // scoreBox.innerHTML.includes('E') ? soundFX.play() : soundFX; // USE LATER
         playerScore = 0;
@@ -236,17 +295,6 @@ function finalDet() {
 
 
 
-/*IDEAS:
 
-5. Music, sfx (speak to Nelson).
-*/
-
-// NEED THIS LATER FOR ADDING SFX - REMEMBER SOUNDfx IS CURRENTLY SET TO DISPLAY:NONE - do sfx last
-// soundFX.src = 'audio/rocketWhoosh.wav';
-// soundFX.play();
-
-// if(scoreBox.style.width < 200) {
-//     scoreBox.innerHTML = 'oh yeah';
-// } // NEED TO FIGURE WAY OF MAKING SCOREBOX MORE RESPONSIVE
 
 
