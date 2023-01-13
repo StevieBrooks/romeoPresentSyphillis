@@ -193,6 +193,7 @@
         @media (max-width: 860px) {
             .score-box {
                 font-size: 1.8rem;
+                text-align: center;
             }
             .player-boxes {
                 flex-direction: column-reverse;
@@ -210,6 +211,11 @@
                 margin: .4rem;
             }
         }
+        @media (max-width: 585px) {
+            .score-box {
+                font-size: 1.5rem;
+            }
+        }
          
         @media (max-width: 420px) {
             .user-box, .comp-box {
@@ -223,3 +229,15 @@
             }
         }
 
+        @media (max-width: 350px) {
+            .user-choice, .comp-choice {
+                width: 95%;
+            }
+            .user-choices {
+                width: 100%;
+            }
+            .choice {
+                width: 45px;
+                margin: .3rem;
+            }
+        }
