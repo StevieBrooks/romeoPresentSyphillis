@@ -1,6 +1,5 @@
 // MISC
 const blinkSpeed1 = 0250;
-const blinkSpeed2 = 1000;
 const darkRed = 'rgb(70, 18, 32)';
 const soundFX = document.querySelector('.sfx');
 
@@ -45,17 +44,17 @@ const insBoxFlash = {
     start: function() {
         this.time = setInterval( () => {
             insBox.style.backgroundColor = (insBox.style.backgroundColor === darkRed ? 'rgb(178, 58, 72)' : darkRed); 
-        }, blinkSpeed2);
+        }, blinkSpeed1);
     },
     stop: function() {
-        clearInterval(this.time, 7000); 
+        clearInterval(this.time); 
     }
 }
 
 function welcome5() {
     insBoxFlash.start();
     insBox.innerHTML = 'First to 5 points wins...';
-    setTimeout(stopFlash, 7000);
+    setTimeout(stopFlash, 3000);
     setTimeout(instruction2, 3000);
     setTimeout(instruction3, 7000);
     function stopFlash() {
@@ -69,13 +68,6 @@ function welcome5() {
         insBox.innerHTML = '- Romeo beats Present.<br>- Present beat Syphillis.<br>- Syphillis beats Romeo.';
     }
 }
-
-
-
-
-// if(scoreBox.style.width < 200) {
-//     scoreBox.innerHTML = 'oh yeah';
-// } // NEED TO FIGURE WAY OF MAKING SCOREBOX MORE RESPONSIVE
 
 // USER CHOICE
 const userChoice = document.querySelector('.user-choice');
@@ -146,8 +138,6 @@ function compImgFunc() {
     compChoice.children[1].style.bottom = '40px'; // THE 'PRESENT' TEXT WAS BEING STUPID.
 }
 
-
-
 // DETERMINE WINNER, COMMENT & RESET
 function determineFunc() {
     const drawComment = ["It's a draw.", "Even Stevens, carry on.", "Draw? There's no paper here!", 
@@ -209,9 +199,6 @@ function winReset() {
     compImage.src = '';
 }
 
-
-
-
 // MASTER RESET
 const masterReset = document.querySelector('.master-reset');
 masterReset.addEventListener('click', masReset)
@@ -258,5 +245,8 @@ function finalDet() {
 // soundFX.src = 'audio/rocketWhoosh.wav';
 // soundFX.play();
 
+// if(scoreBox.style.width < 200) {
+//     scoreBox.innerHTML = 'oh yeah';
+// } // NEED TO FIGURE WAY OF MAKING SCOREBOX MORE RESPONSIVE
 
 
