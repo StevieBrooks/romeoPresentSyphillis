@@ -1,6 +1,8 @@
 // MISC
 const blinkSpeed1 = 0250;
 const darkRed = 'rgb(70, 18, 32)';
+
+// SOUND
 const music = document.querySelector('.music');
 const soundFX = document.querySelector('.sfx');
 
@@ -16,35 +18,21 @@ setTimeout( () => {
     music.play();
 }, 2000);
 
+
 const toggleSound = document.querySelector('.toggle-sound');
 let soundStatus = true;
-const soundControl = {
-    on: function() {
-        music.src = 'audio/song.mp3';
-        music.play();
-    },
-    off: function () {
-        music.src = '';
-        music.play();
-        soundFX.src = '';
-        soundFX.play();
-    }
-}
 toggleSound.addEventListener('click', soundOff);
 function soundOff() {
     soundStatus = false;
-    soundFX.src = 'audio/click.mp3';
-    soundFX.play();
-    soundControl.on() ? soundControl.off() : soundControl.on();
+    if(music.paused && music.currentTime > 0 && !music.ended) {
+        music.play();
+        soundStatus = true;
+    } else if(music.ended) {
+        music.play();
+    } else {
+        music.pause();
+    }
 }
-toggleSound.addEventListener('click', soundOn);
-function soundOn() {
-    soundFX.src = 'audio/click.mp3';
-    soundFX.play();
-    soundControl.off() ? soundControl.on() : soundControl.off();
-}
-// NEED TO TURN SOUND BACK ON BY CLICKING SAME BUTTON - SOUNDon AND ITS TERNARY NOT WORKING!
-
 
 // SCOREBOX
 const scoreBox = document.querySelector('.score-box');
