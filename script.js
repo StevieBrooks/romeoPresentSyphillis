@@ -13,10 +13,16 @@ function brooksFunc() {
     soundFX.play();
 }
 
-setTimeout( () => {
-    music.src = 'audio/song.mp3';
+music.src = 'audio/song.mp3';
+window.addEventListener('load', playMusic);
+function playMusic() {
     music.play();
-}, 2000);
+}
+
+// setTimeout( () => {
+//     music.src = 'audio/song.mp3';
+//     music.play();
+// }, 2000);
 
 
 const toggleSound = document.querySelector('.toggle-sound');
