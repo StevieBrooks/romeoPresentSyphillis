@@ -26,19 +26,34 @@ function playMusic() {
 
 
 const toggleSound = document.querySelector('.toggle-sound');
-let soundStatus = true;
-toggleSound.addEventListener('click', soundOff);
-function soundOff() {
-    soundStatus = false;
-    if(music.paused && music.currentTime > 0 && !music.ended) {
+let soundStatus = false;
+toggleSound.addEventListener('click', () => {
+    soundStatus = true;
+    if(music.currentTime == 0) {
         music.play();
-        soundStatus = true;
-    } else if(music.ended) {
+        toggleSound.innerHTML = 'Sound Off';
+    } else if(music.paused && music.currentTime > 0 && !music.ended) {
         music.play();
+        toggleSound.innerHTML = 'Sound Off';
     } else {
         music.pause();
+        soundStatus = false;
+        toggleSound.innerHTML = 'Sound On';
     }
-}
+})
+// let soundStatus = true;
+// toggleSound.addEventListener('click', soundOff);
+// function soundOff() {
+//     soundStatus = false;
+//     if(music.paused && music.currentTime > 0 && !music.ended) {
+//         music.play();
+//         soundStatus = true;
+//     } else if(music.ended) {
+//         music.play();
+//     } else {
+//         music.pause();
+//     }
+// }
 
 // SCOREBOX
 const scoreBox = document.querySelector('.score-box');
