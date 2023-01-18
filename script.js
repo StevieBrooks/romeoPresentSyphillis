@@ -19,12 +19,6 @@ function playMusic() {
     music.play();
 }
 
-// setTimeout( () => {
-//     music.src = 'audio/song.mp3';
-//     music.play();
-// }, 2000);
-
-
 const toggleSound = document.querySelector('.toggle-sound');
 let soundStatus = false;
 toggleSound.addEventListener('click', () => {
@@ -41,19 +35,6 @@ toggleSound.addEventListener('click', () => {
         toggleSound.innerHTML = 'Sound On';
     }
 })
-// let soundStatus = true;
-// toggleSound.addEventListener('click', soundOff);
-// function soundOff() {
-//     soundStatus = false;
-//     if(music.paused && music.currentTime > 0 && !music.ended) {
-//         music.play();
-//         soundStatus = true;
-//     } else if(music.ended) {
-//         music.play();
-//     } else {
-//         music.pause();
-//     }
-// }
 
 // SCOREBOX
 const scoreBox = document.querySelector('.score-box');
